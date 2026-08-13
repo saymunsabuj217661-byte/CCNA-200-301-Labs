@@ -1,4 +1,3 @@
-অবশ্যই। আপনার **Lab-01-Basic-Switch-Configuration** folder-এর `README.md`-এর জন্য নিচেরটা সরাসরি copy-paste করতে পারেন।
 
 # LAB 01 — Basic Cisco Switch Configuration
 
