@@ -1,31 +1,18 @@
 
 # LAB 01 — Basic Cisco Switch Configuration
 
-<<<<<<< HEAD
 ## 📌 Overview
-=======
-### 1. Objective
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
 
 This lab demonstrates the basic initial configuration and access-security settings of a Cisco Layer 2 switch using Cisco Packet Tracer.
 
-<<<<<<< HEAD
 The lab also verifies Layer 2 connectivity between two PCs connected through the switch.
-=======
-### 2. Lab Environment
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
 
 ---
 
-<<<<<<< HEAD
 ## 🎯 Objective
-=======
-### 3. Network Topology
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
 
 The objectives of this lab are to:
 
-<<<<<<< HEAD
 * Configure a Cisco switch hostname.
 * Configure an enable secret for privileged EXEC mode.
 * Configure a Message of the Day (MOTD) banner.
@@ -35,13 +22,9 @@ The objectives of this lab are to:
 * Verify the switch running configuration.
 * Verify switch-port status.
 * Test Layer 2 connectivity between connected PCs using ICMP ping.
-=======
-### 4. Configuration Performed
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
 
 ---
 
-<<<<<<< HEAD
 ## 🧪 Lab Environment
 
 | Component       | Details              |
@@ -83,10 +66,6 @@ The following configurations were performed on the Cisco switch:
 ## 💻 Key Configuration Commands
 
 ```cisco
-=======
-### 5. Key Configuration Commands
-
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
 enable
 configure terminal
 
@@ -110,36 +89,13 @@ login
 exit
 ```
 
-<<<<<<< HEAD
 > **Note:** Passwords and encrypted secret values are intentionally omitted from this public documentation.
 
 ---
-=======
-Note: Passwords and encrypted secret values are intentionally omitted from the public documentation.
-### 6. Verification Commands
-
-- `show running-config` — verified the active switch configuration.
-- `show interfaces status` — verified switch-port status.
-- `ping <destination-IP>` — verified connectivity between connected PCs.
-
-### 7. Connectivity Verification
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
 
 ## 🔎 Verification
 
-<<<<<<< HEAD
 ### 1. Verify Running Configuration
-=======
-![Ping Verification](ping-success.png)
-
-#### Ping Result
-
-- **Packets Sent:** 4
-- **Packets Received:** 4
-- **Packet Loss:** 0%
-
-### 8. Expected Result
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
 
 ```cisco
 show running-config
@@ -253,35 +209,6 @@ This lab is part of my **CCNA 200-301 Networking Lab Series**, covering fundamen
 
 **Lab Status:** ✅ Completed
 
-<<<<<<< HEAD
 
 
 
-
-=======
-### 9. GitHub Project Files
-
-- `Basic Switch + PC Connectivity.pkt`
-- `README.md`
-- `topology.png`
-- `ping-success.png`
-
-### 10. Security Note
-
-Do not publish real passwords, enable-secret hashes, private keys, or other credentials in GitHub screenshots or documentation.
-
-### 11. Skills Demonstrated
-
-- Cisco IOS CLI
-- Basic switch initialization
-- Hostname configuration
-- Privileged EXEC security
-- Console access configuration
-- VTY line configuration
-- MOTD banner configuration
-- Basic network verification and troubleshooting
-
-### 12. Lab Status
-
-**LAB 01 — COMPLETED ✅**
->>>>>>> ddd5ac8 (Add Lab 02 VLAN access port configuration)
