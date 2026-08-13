@@ -48,24 +48,6 @@ The objectives of this lab are to:
 
 ![Network Topology](topology.png)
 
-### Topology
-
-```text
-                    Router0
-                 DHCP Server
-                192.168.10.1
-                      |
-                      |
-                   Switch0
-                 /    |    \
-               PC0   PC1   PC2
-              DHCP  DHCP  DHCP
-```
-
-The Cisco router acts as the **DHCP server and default gateway** for the LAN.
-
----
-
 # 🗂️ IP Addressing
 
 | Device  | Interface | IP Address      | Assignment |
@@ -342,22 +324,6 @@ The router confirms the DHCP lease and provides the client with its network conf
 
 ---
 
-# 🧩 Network Design
-
-```text
-                    Cisco Router
-                 DHCP Server/Gateway
-                    192.168.10.1
-                          |
-                          |
-                    192.168.10.0/24
-                          |
-                       Switch0
-                    /      |      \
-                  /        |        \
-                PC0       PC1       PC2
-               DHCP      DHCP      DHCP
-```
 
 The router performs two main functions:
 
