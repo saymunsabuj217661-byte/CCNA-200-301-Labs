@@ -60,25 +60,6 @@ The objectives of this lab are to:
 
 ---
 
-## 🔗 Network Design
-
-```text
-                    802.1Q TRUNK
-        ┌─────────────────────────────┐
-        │      VLAN 10, VLAN 20       │
-        │                             │
-   Switch0 ======================= Switch1
-      │                               │
-   ┌──┴──┐                         ┌──┴──┐
-   │     │                         │     │
-  PC0   PC1                       PC2   PC3
- VLAN10 VLAN20                   VLAN10 VLAN20
-   │     │                         │     │
- .10.10 .20.10                  .10.20 .20.20
-```
-
----
-
 ## ⚙️ Configuration Performed
 
 The following configurations were performed on both switches:
@@ -106,7 +87,7 @@ enable
 configure terminal
 
 vlan 10
-name VLAN10
+name HR
 exit
 ```
 
@@ -114,7 +95,7 @@ exit
 
 ```cisco
 vlan 20
-name VLAN20
+name IT
 exit
 ```
 
