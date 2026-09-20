@@ -209,13 +209,3 @@ After successful deployment:
 
 ---
 
-## 📂 Lab Files Inventory Checklist
-
-| **File** | **Technical Description** |
-| :--- | :--- |
-| `README.md` | Comprehensive Lab Technical Documentation (This Document File) |
-| `Lab 17 – DHCP Relay.pkt` | Authentic Cisco Packet Tracer core network auto-provisioning sandbox file |
-| `01-Topology.png` | Network topology environment design backbone path layout |
-| `02-R0-Interface-Configuration.png` | Router R0 perimeter interface summary configuration clip |
-| `03-R1-Interface-Configuration.png` | Router R1 server interface summary configuration clip |
-| `04-R1-DHCP-Pool-Configuration.png` | Central server dynamic pool scope setup validation capture |
