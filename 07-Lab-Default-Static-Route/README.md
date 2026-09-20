@@ -45,7 +45,7 @@ The objectives of this lab are to:
 
 The lab topology maps an edge Local Area Network (LAN) terminating into a cascading serial/ethernet Wide Area Network (WAN) transit pipeline:
 
-![Network Topology](03-R1-Interface-Configuration.png)
+![Network Topology](01-Topology.png)
 
 *   **LAN Subnet:** `192.168.10.0/24` (PC1 Host: `192.168.10.10`, Router1 Gateway: `192.168.10.1` on `Gig0/0`)
 *   **WAN Transit Link 1:** `10.0.0.0/30` (Router1 IP: `10.0.0.1` on `Gig0/1`, Router2 IP: `10.0.0.2` on `Gig0/0`)
