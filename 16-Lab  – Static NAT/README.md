@@ -43,19 +43,6 @@ The objectives of this lab are to:
 
 The architecture maps private internal computing nodes transiting a secure edge checkout perimeter toward public external server spaces across an automated ISP network layer:
 
-```text
-                  Static NAT
-                  
- PC0              SW0              R0                     R1
-192.168.10.10      |        G0/0         G0/1        G0/0
-
-     |             |     192.168.10.1 203.0.113.1 203.0.113.2
-     +-------------+---------|-------------|------------+
-                                                   |
-                                              Loopback0
-                                               8.8.8.8
-```
-
 ### Topology Schematic
 ![Network Topology](01-Topology.png)
 
