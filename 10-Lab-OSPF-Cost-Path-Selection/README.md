@@ -4,10 +4,10 @@
 
 This lab demonstrates how Open Shortest Path First Version 2 (**OSPFv2**) performs dynamic route selection based on interface metric values (**Cost**) inside a Cisco Packet Tracer infrastructure sandbox environment.
 
-OSPF evaluates path preferences using a cumulative cost metric calculated via the reference bandwidth formula: 
-$$\text{Cost} = \frac{\text{Reference Bandwidth (Default = } 100 \text{ Mbps)}}{\text{Interface Bandwidth}}$$
+OSPF evaluates path preferences using up-to-date cumulative cost metrics calculated via the default reference bandwidth formula: 
+$$\text{Cost} = \frac{\text{Reference Bandwidth (100 Mbps)}}{\text{Interface Bandwidth}}$$
 
-When multiple alternative routing vectors (redundant paths) exist to target remote network subnets, the Dijkstra Shortest Path First (SPF) algorithm automatically selects the loop-free path carrying the absolute lowest total cost value. This lab maps out an upper direct point-to-point link and a lower alternative backup multi-hop transit line. Furthermore, it demonstrates manual manipulation of the interface cost to dynamically steer traffic over the backup path, verifying immediate routing convergence and path selection changes.
+When multiple alternative routing vectors (redundant paths) exist to target remote network subnets, the Dijkstra Shortest Path First (SPF) algorithm automatically selects the loop-free path carrying the absolute lowest total cost value. This lab maps out an upper direct point-to-point link carrying a total metric cost of 2, and a lower alternative backup multi-hop transit line carrying a total metric cost of 3, demonstrating default OSPF optimal path selection over redundant topologies.
 
 ---
 
@@ -19,9 +19,7 @@ The objectives of this lab are to:
 * Assign classless fixed static IPv4 configuration maps for distinct host networks and WAN point-to-point paths.
 * Understand the Cisco OSPFv2 cumulative link cost metric calculation formula.
 * Initialize global Area 0 dynamic parameters to activate dynamic lookup adjacencies.
-* Verify preferred structural path selection properties inside converged IP routing tables.
-* Manually alter interface OSPF cost settings (`ip ospf cost <value>`) to influence path selection.
-* Validate immediate routing table updates and path failover triggers after metric modification.
+* Verify preferred structural path selection properties inside converged IP routing tables based on lowest cumulative cost.
 * Execute an end-to-end data-plane path check to confirm transport reachability using ICMP Echo metrics.
 * Diagnose and capture the active forwarding path steps using Traceroute boundary analysis.
 
@@ -36,7 +34,7 @@ The objectives of this lab are to:
 | Core Switches | Switch1, Switch2 (Cisco 2960-24TT) |
 | Host Workspaces | PC1, PC2 |
 | Routing Protocol | Single-Area OSPFv2 (Backbone Area 0) |
-| Metrics Basis | Interface Cost / Reference Bandwidth |
+| Metrics Basis | Interface Cost / Reference Bandwidth (Default Cost = 1) |
 
 ---
 
@@ -174,7 +172,7 @@ write memory
 
 ---
 
-# 🖥️ Static Endpoint Properties Validation
+# 🖥 "Static Endpoint Properties Validation
 
 Manual interface metrics applied permanently to host system software layers:
 
@@ -214,37 +212,34 @@ The parameters verified inside the global status memory profiles indicate correc
 ---
 
 ## 3. Extract Granular Link Cost Profiles
-To trace individual cost metric attributes applied globally on target interface paths:
+To trace individual default cost metric attributes applied on target interface paths:
 
-### Router1 Per-Link Dynamic Cost Parameters
+### Router1 Per-Link Default Cost Parameters (Cost: 1)
 ![R1 Interface Cost](08-R1-OSPF-Interface-Cost.png)
 
-### Router2 Per-Link Dynamic Cost Parameters
+### Router2 Per-Link Default Cost Parameters (Cost: 1)
 ![R2 Interface Cost](09-R2-OSPF-Interface-Cost.png)
 
 ---
 
-## 🛠️ Traffic Engineering: OSPF Metric Manipulation
-To influence path preference toward the multi-hop backup link, the default cost configuration on Router1's direct link interface (`Gig0/1`) was increased manually. 
+## 4. Verified Routing Table Convergence & Path Selection
+The dynamic route convergence results inside the hardware memory layer show preferred path selection verification:
 
-```cisco
-R1(config)# interface GigabitEthernet0/1
-R1(config-if)# ip ospf cost 50
+```text
+R1#show ip route
+...
+192.168.20.0/24 [110/2] via 10.0.0.2, 00:23:40, GigabitEthernet0/1
 ```
+![R1 Table Capture](10-R1-Routing-Table-After-Cost-Change.png)
 
-### Verified Routing Table Post Cost Manipulation
-The dynamic route convergence results inside the hardware memory layer show path alteration verification:
-
-![R1 Table Capture Post Metric Change](10-R1-Routing-Table-After-Cost-Change.png)
-
-As verified, the routing table updates to choose the longer alternative backup path vector due to a lower cumulative cost string comparison.
+As verified in the routing table, the SPF engine automatically chooses the direct upper point-to-point link because it yields the lowest cumulative cost parameter (`Total Cost = 2`) compared to the multi-hop backup route via Router3 (`Total Cost = 3`).
 
 ### Converged Path Routing Maps Check
 ![OSPF Live Path Mappings](11-OSPF-Path-Verification.png)
 
 ---
 
-# 🌐 Data Plane Connectivity and Failover Diagnostics
+# 🌐 Data Plane Connectivity and Diagnostics
 
 ## 1. End-to-End ICMP Reachability Check
 Bidirectional message delivery verification originating across distinct host nodes:
@@ -285,5 +280,13 @@ C:\> tracert 192.168.20.10
 
 After successful deployment:
 * OSPF dynamic adjacencies reach stable converged `FULL` status across all intersecting rings.
-* The Dijkstra SPF engine calculates and matches proper cost weights to active hardware properties.
-* Traffic defaults to the direct point-to-point upper path due to its lower total routing metric under default states.
+* The Dijkstra SPF engine calculates and matches proper cost weights (`Cost = 1` for Gigabit) to active hardware properties.
+* Traffic defaults to the direct point-to-point upper path due to its lower total routing metric under default states, maintaining optimal multi-hop dynamic path convergence.
+
+---
+
+## 📂 Lab Files Inventory Checklist
+
+| **File** | **Technical Description** |
+|---|---|
+| `README.md` | Comprehensive Lab Technical Documentation (This Document File) |
