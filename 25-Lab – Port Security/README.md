@@ -48,20 +48,6 @@ The objectives of this lab are to:
 
 # 🌐 Network Topology
 
-```text
-PC0
-192.168.10.10/24
-     |
-     | Fa0/1
-     |
-    SW1
-     |
-     | Fa0/2
-     |
-PC1
-192.168.10.20/24
-```
-
 ### Normal Topology
 
 ![Network Topology](01-Topology.png)
