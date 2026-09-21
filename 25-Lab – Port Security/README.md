@@ -516,12 +516,3 @@ This demonstrates a practical Layer 2 access-port security mechanism using Cisco
 
 ---
 
-# 📚 Lab Information
-
-**Lab Number:** 25
-**Lab Title:** Layer 2 Security — Switch Port Security
-**Platform:** Cisco Packet Tracer
-**Switch:** Cisco Catalyst 2960-24TT
-**Primary Security Interface:** FastEthernet0/1
-**Security Method:** Sticky MAC Port Security
-**Violation Action:** Shutdown / Err-disabled
