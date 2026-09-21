@@ -100,7 +100,7 @@ write memory
 Manual static network attributes provisioned locally across administrative host computing layers:
 
 ### PC0 Management Workspace IP Configuration Profile
-![PC0 Settings](03-PCO-IP-Configuration.png)
+![PC0 Settings](03-PC0-IP-Configuration.png)
 
 ---
 
